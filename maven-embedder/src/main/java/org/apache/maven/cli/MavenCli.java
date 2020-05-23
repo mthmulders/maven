@@ -1351,7 +1351,6 @@ public class MavenCli
 
         List<String> goals = commandLine.getArgList();
 
-        boolean recursive = true;
 
         // this is the default behavior.
         String reactorFailureBehaviour = MavenExecutionRequest.REACTOR_FAIL_FAST;
@@ -1360,7 +1359,7 @@ public class MavenCli
 
         if ( commandLine.hasOption( CLIManager.NON_RECURSIVE ) )
         {
-            recursive = false;
+            request.setRecursive( false ); // default: true
         }
 
         if ( commandLine.hasOption( CLIManager.FAIL_FAST ) )
@@ -1473,7 +1472,6 @@ public class MavenCli
         request.setBaseDirectory( baseDirectory ).setGoals( goals ).setSystemProperties(
             cliRequest.systemProperties ).setUserProperties( cliRequest.userProperties ).setReactorFailureBehavior(
             reactorFailureBehaviour ) // default: fail fast
-            .setRecursive( recursive ) // default: true
             .setShowErrors( showErrors ) // default: false
             .addActiveProfiles( activeProfiles ) // optional
             .addInactiveProfiles( inactiveProfiles ) // optional
