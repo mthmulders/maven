@@ -1380,11 +1380,9 @@ public class MavenCli
             request.setOffline( true );
         }
 
-        boolean updateSnapshots = false;
-
         if ( commandLine.hasOption( CLIManager.UPDATE_SNAPSHOTS ) )
         {
-            updateSnapshots = true;
+            request.setUpdateSnapshots( true ); // default: false
         }
 
         String globalChecksumPolicy = null;
@@ -1477,7 +1475,6 @@ public class MavenCli
             .addInactiveProfiles( inactiveProfiles ) // optional
             .setExecutionListener( executionListener ).setTransferListener(
             transferListener ) // default: batch mode which goes along with interactive
-            .setUpdateSnapshots( updateSnapshots ) // default: false
             .setGlobalChecksumPolicy( globalChecksumPolicy ) // default: warn
             .setMultiModuleProjectDirectory( cliRequest.multiModuleProjectDirectory );
 
