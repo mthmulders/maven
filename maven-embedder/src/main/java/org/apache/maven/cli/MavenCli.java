@@ -1349,7 +1349,7 @@ public class MavenCli
         //
         // ----------------------------------------------------------------------
 
-        List<String> goals = commandLine.getArgList();
+        request.setGoals( commandLine.getArgList() );
 
 
         // this is the default behavior.
@@ -1467,7 +1467,7 @@ public class MavenCli
             alternatePomFile = commandLine.getOptionValue( CLIManager.ALTERNATE_POM_FILE );
         }
 
-        request.setBaseDirectory( baseDirectory ).setGoals( goals ).setSystemProperties(
+        request.setBaseDirectory( baseDirectory ).setSystemProperties(
             cliRequest.systemProperties ).setUserProperties( cliRequest.userProperties ).setReactorFailureBehavior(
             reactorFailureBehaviour ) // default: fail fast
             .addActiveProfiles( activeProfiles ) // optional
