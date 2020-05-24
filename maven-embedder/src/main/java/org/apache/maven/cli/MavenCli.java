@@ -1330,7 +1330,7 @@ public class MavenCli
         request.setShowErrors( cliRequest.showErrors ); // default: false
         File baseDirectory = new File( workingDirectory, "" ).getAbsoluteFile();
 
-        warnAboutDeprecatedOptionsUsed( commandLine );
+        handleDeprecatedOptions( commandLine );
 
         request.setInteractiveMode( !commandLine.hasOption( CLIManager.BATCH_MODE ) );
         request.setNoSnapshotUpdates( commandLine.hasOption( CLIManager.SUPRESS_SNAPSHOT_UPDATES ) );
@@ -1532,7 +1532,7 @@ public class MavenCli
         }
     }
 
-    private void warnAboutDeprecatedOptionsUsed( final CommandLine commandLine )
+    private void handleDeprecatedOptions( final CommandLine commandLine )
     {
         Arrays.stream( DEPRECATED_OPTIONS )
                 .filter( commandLine::hasOption )
