@@ -19,7 +19,6 @@ package org.apache.maven.cli;
  * under the License.
  */
 
-import com.google.common.annotations.VisibleForTesting;
 import com.google.inject.AbstractModule;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
@@ -1442,7 +1441,7 @@ public class MavenCli
         return null;
     }
 
-    @VisibleForTesting
+    // Visible for testing
     static ProjectActivation determineProjectActivation ( final CommandLine commandLine )
     {
         final ProjectActivation projectActivation = new ProjectActivation();
@@ -1482,7 +1481,7 @@ public class MavenCli
         return projectActivation;
     }
 
-    @VisibleForTesting
+    // Visible for testing
     static ProfileActivation determineProfileActivation( final CommandLine commandLine )
     {
         final ProfileActivation result = new ProfileActivation();
@@ -1738,7 +1737,7 @@ public class MavenCli
         return container.lookup( ModelProcessor.class );
     }
 
-    @VisibleForTesting
+    // Visible for testing
     static class ProfileActivation
     {
         final List<String> activeProfiles = new ArrayList<>();
@@ -1755,7 +1754,7 @@ public class MavenCli
         }
     }
 
-    @VisibleForTesting
+    // Visible for testing
     static class ProjectActivation
     {
         List<String> activeProjects;
